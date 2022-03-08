@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from "react";
 import './App.css';
 import axios from 'axios';
-import Package from '../package.json';
+
 
  
 
@@ -38,17 +38,16 @@ const [temperature,assigntemperature] =useState(0)
 
   useEffect(()=>{
     navigator.geolocation.getCurrentPosition(success);
-    console.log(climate);
 },[]);
 
   return (
     <div className="App">
        
-      <a className="humidity">{climate.main?.humidity}</a>
+      <span className="humidity">{climate.main?.humidity}</span>
       <h1 className="temp_max">{climate.main?.temp_max}</h1>
       <p className="name">{climate.name}</p>
-      <a className="climate">{climate.sys?.country}</a>
-      <a className="temperature">{temperature}</a>
+      <span className="climate">{climate.sys?.country}</span>
+      <span className="temperature">{temperature}</span>
       <div className="button">
         <button onClick={convert}>converti</button>
       </div>
